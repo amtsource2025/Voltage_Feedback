@@ -3,7 +3,7 @@ QT       += core gui widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = adc_tuning8 #idle->0 (1280x720)
-TARGET = adc_tuning9 #idle->100 (1280x720)
+#TARGET = adc_tuning9 #idle->100 (1280x720)
 TEMPLATE = app
 
 CONFIG += c++11
