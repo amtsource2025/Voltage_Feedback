@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frequency Tuning</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>1031</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tabFeedback">
+     <attribute name="title">
+      <string>Feedback (Current &amp; Voltage)</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayoutFeedback">
+      <property name="leftMargin">
+       <number>2</number>
+      </property>
+      <property name="topMargin">
+       <number>2</number>
+      </property>
+      <property name="rightMargin">
+       <number>2</number>
+      </property>
+      <property name="bottomMargin">
+       <number>2</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="plotFrame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="plotLayout">
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabImpedance">
+     <attribute name="title">
+      <string>Impedance (Z = V/I)</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayoutImpedance">
+      <property name="leftMargin">
+       <number>2</number>
+      </property>
+      <property name="topMargin">
+       <number>2</number>
+      </property>
+      <property name="rightMargin">
+       <number>2</number>
+      </property>
+      <property name="bottomMargin">
+       <number>2</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="impedancePlotFrame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="impedancePlotLayout">
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="butDAC">
+    <property name="geometry">
+     <rect>
+      <x>1340</x>
+      <y>130</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DAC Values</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDacTitle">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>170</y>
+      <width>151</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DAC Output (live):</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDacValue">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>200</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QLabel { font-weight: bold; font-size: 11pt; color: #005580; border: 1px solid #aaa; border-radius: 4px; padding: 2px 4px; background: #eef6ff; }</string>
+    </property>
+    <property name="text">
+     <string>-- V  (---- counts)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDacManual">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>60</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Set DAC Power (0-100%):</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxDacPower">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>100</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="suffix">
+     <string> %</string>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>100</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonSetDac">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>100</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton { background-color: #005580; color: white; border-radius: 4px; font-weight: bold; } QPushButton:pressed { background-color: #003355; }</string>
+    </property>
+    <property name="text">
+     <string>Set DAC</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelHPNo">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>260</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HP.NO:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditHPNo">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>290</y>
+      <width>91</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>e.g. HP054</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelADC">
+    <property name="geometry">
+     <rect>
+      <x>1350</x>
+      <y>230</y>
+      <width>91</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ADC Channel</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboADCChannel">
+    <property name="geometry">
+     <rect>
+      <x>1350</x>
+      <y>180</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>FS (0x97)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Phaco (0xA7)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sensor (0xD7)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="labelMaxFreq">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>350</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Max Freq (kHz)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditMaxFreq">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>380</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>46.0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelMinFreq">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>430</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Min Freq (kHz)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditMinFreq">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>450</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>38.0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonSweep">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>500</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start Measure</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonClear">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>590</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear Graph</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelStatus">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>590</y>
+      <width>631</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Initialising...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelPeakFreq">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>650</y>
+      <width>621</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Peak Current: --</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelPeakZFreq">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>620</y>
+      <width>631</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Peak Impedance: --</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
